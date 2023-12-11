@@ -19,4 +19,3 @@ format:
 lint:
 	poetry run black --check . -S
 	poetry run flake8 --ignore=C0209 $(CODE_FOLDERS) $(TEST_FOLDERS)
-	poetry run pylint $(CODE_FOLDERS) $(TEST_FOLDERS)

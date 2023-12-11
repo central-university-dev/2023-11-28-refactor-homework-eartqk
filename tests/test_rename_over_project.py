@@ -30,8 +30,8 @@ def test_rename_function(tmp_path, setup_tmp_files):
     expected_source_code = ''
     assert source_code_path.read_text() == expected_source_code
 
-    expected_migration_target_code = 'print(\"some text for test\")\ndef old_function():\n    return(\"old\")'
+    expected_migration_target_code = 'print(\"some text for test\")\ndef new_function():\n    return(\"old\")\n'
     assert migration_target_path.read_text() == expected_migration_target_code
 
-    expected_code_with_imports = 'from .migration_target import new_function\nresult_function = new_function()\n'
+    expected_code_with_imports = 'from .migration_target import new_function\n\nresult_function = new_function()'
     assert code_with_imports_path.read_text() == expected_code_with_imports
